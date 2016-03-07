@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MMORPS</title>
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Welcome to Luu's RPS.  I hope you "Luu's!"</h1>
+    </header>
+
+    <p class="outcome">Outcomes of last throw, if there was a last throw</p>
+    <p>Your score: <span class="score">0</span></p>
+    <p>Computer score: <span class="score">0</span></p>
+    <form action="/throw" method = "post">
+      <h2>Choose!</h2>
+
+      <input type="submit" name="throw" value="Rock">
+      <input type="submit" name="throw" value="Paper">
+      <input type="submit" name="throw" value="Scissors">
+    </form>
+  </body>
+</html>

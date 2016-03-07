@@ -10,7 +10,11 @@
       <h1>Welcome to Luu's RPS.  I hope you "Luu's!"</h1>
     </header>
 
-    <p class="outcome">Outcomes of last throw, if there was a last throw</p>
+    <% if session[:throw] %>
+      <p class="outcome">Outcomes of last throw was: <%= session[:throw] %> </p>
+    <% else %>
+      <p class="outcome">Choose something to start!</p>
+    <% end %>
     <p>Your score: <span class="score">0</span></p>
     <p>Computer score: <span class="score">0</span></p>
     <form action="/throw" method = "post">

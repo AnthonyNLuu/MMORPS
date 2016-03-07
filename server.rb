@@ -14,6 +14,6 @@ get '/home' do
 end
 
 post '/throw' do
-  session[:user_throw] = params[:user_throw]
+  session[:throw] = params[:throw]
   redirect '/home'
 end

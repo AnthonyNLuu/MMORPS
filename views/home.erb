@@ -11,18 +11,26 @@
     </header>
 
     <% if session[:throw] %>
-      <p class="outcome">Outcomes of last throw was: <%= session[:throw] %> </p>
+      <p class="outcome">You chose: <%= session[:throw] %>, the computer chose: <%= session[:computer_throw] %>. <br><%= session[:result] %></p>
     <% else %>
       <p class="outcome">Choose something to start!</p>
     <% end %>
-    <p>Your score: <span class="score">0</span></p>
-    <p>Computer score: <span class="score">0</span></p>
-    <form action="/throw" method = "post">
-      <h2>Choose!</h2>
+    <p>Your score: <span class="score"><%= session[:user_score] %></span></p>
+    <p>Computer score: <span class="score"><%= session[:computer_score] %></span></p>
 
-      <input type="submit" name="throw" value="Rock">
-      <input type="submit" name="throw" value="Paper">
-      <input type="submit" name="throw" value="Scissors">
-    </form>
+    <% if session[:game_over] == true %>
+      <form action="/reset" method="post">
+        <input type="submit" value="Play Again!">
+      </form>
+    <% else %>
+      <form action="/throw" method="post">
+        <h2>Choose!</h2>
+
+        <input type="submit" name="throw" value="Rock">
+        <input type="submit" name="throw" value="Paper">
+        <input type="submit" name="throw" value="Scissors">
+      </form>
+    <% end %>
+
   </body>
 </html>
